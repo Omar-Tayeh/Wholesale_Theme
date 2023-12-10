@@ -1,1 +1,52 @@
-{"name":"t:sections.header.name","type":"header","sections":{"544fedbc-0c9a-4280-a983-bafeffeff3a4":{"type":"announcement-bar","blocks":{"sections--16830764876027__544fedbc-0c9a-4280-a983-bafeffeff3a4-announcement-1":{"type":"announcement","settings":{"text":"FREE UK DELIVERY ON ORDERS OVER £60 | FREE UK RETURNS","link":""}}},"block_order":["sections--16830764876027__544fedbc-0c9a-4280-a983-bafeffeff3a4-announcement-1"],"settings":{"color_scheme":"scheme-ce1fa8a4-8be2-40a6-8679-514d625f868a","show_line_separator":true,"show_social":false,"auto_rotate":true,"change_slides_speed":5,"enable_country_selector":false,"enable_language_selector":false}},"header":{"type":"header","settings":{"logo_position":"top-left","menu":"main-menu","menu_type_desktop":"dropdown","sticky_header_type":"on-scroll-up","show_line_separator":true,"color_scheme":"background-1","menu_color_scheme":"background-1","enable_country_selector":true,"enable_language_selector":true,"mobile_logo_position":"center","margin_bottom":0,"padding_top":24,"padding_bottom":24}}},"order":["544fedbc-0c9a-4280-a983-bafeffeff3a4","header"]}
+{
+  "name": "t:sections.header.name",
+  "type": "header",
+  "sections": {
+    "544fedbc-0c9a-4280-a983-bafeffeff3a4": {
+      "type": "announcement-bar",
+      "blocks": {
+        "sections--16830764876027__544fedbc-0c9a-4280-a983-bafeffeff3a4-announcement-1": {
+          "type": "announcement",
+          "settings": {
+            "text": "Free Delivery On Online Orders For UK Mainland",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "sections--16830764876027__544fedbc-0c9a-4280-a983-bafeffeff3a4-announcement-1"
+      ],
+      "settings": {
+        "color_scheme": "scheme-ce1fa8a4-8be2-40a6-8679-514d625f868a",
+        "show_line_separator": true,
+        "show_social": false,
+        "auto_rotate": true,
+        "change_slides_speed": 5,
+        "enable_country_selector": false,
+        "enable_language_selector": false
+      }
+    },
+    "header": {
+      "type": "header",
+      "settings": {
+        "logo_position": "top-left",
+        "menu": "main-menu",
+        "menu_type_desktop": "dropdown",
+        "sticky_header_type": "on-scroll-up",
+        "show_line_separator": true,
+        "color_scheme": "background-1",
+        "menu_color_scheme": "background-1",
+        "enable_country_selector": true,
+        "enable_language_selector": true,
+        "mobile_logo_position": "center",
+        "margin_bottom": 0,
+        "padding_top": 24,
+        "padding_bottom": 24
+      }
+    }
+  },
+  "order": [
+    "544fedbc-0c9a-4280-a983-bafeffeff3a4",
+    "header"
+  ]
+}
