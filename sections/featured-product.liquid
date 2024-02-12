@@ -170,6 +170,7 @@
                 {% comment  %} Omar {% endcomment %}
                 {%if customer and customer.tags contains 'wholesale_uk'%}
                   <div class="no-js-hidden" id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
+                    <span style="margin-right: 5px;">Pack Price:</span>
                     {%- render 'price',
                       product: product,
                       use_variant: true,
