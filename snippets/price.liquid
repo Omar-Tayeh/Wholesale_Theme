@@ -10,6 +10,17 @@
 
   Usage:
   {% render 'price', product: product %}
+
+  if use_unit_price
+    assign packnum = product.selected_or_first_available_variant.option2 | slice: -1, 1
+  endif
+
+  if packnum
+    assign price = target.price | divided_by: packnum | default: 1999
+  else
+    assign price = target.price | default: 1999
+  endif
+
 {% endcomment %}
 {%- liquid
   if use_variant
@@ -21,11 +32,12 @@
   assign compare_at_price = target.compare_at_price
 
   if use_unit_price
-    assign packnum = product.selected_or_first_available_variant.option2 | slice: -1, 1
+    assign metapack = product.metafields.custom.packsize
   endif
+  
 
-  if packnum
-    assign price = target.price | divided_by: packnum | default: 1999
+  if metapack
+    assign price = target.price | divided_by: metapack | default: 1999
   else
     assign price = target.price | default: 1999
   endif
