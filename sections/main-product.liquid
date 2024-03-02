@@ -421,6 +421,10 @@
                     </volume-pricing>
                   {%- endif -%}
                 </div>
+                {% else %}
+                <div class="no-js-hidden" role="status" {{ block.shopify_attributes }}>
+                  <a href="/pages/ws-account-create" style="margin-right: 5px; color:brown; font:bold;">Login/Register to Buy</a>
+                </div>
               {%endif%}
               {% comment  %} Omar {% endcomment %}
             {%- when 'popup' -%}
