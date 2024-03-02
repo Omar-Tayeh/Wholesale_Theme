@@ -1,6 +1,6 @@
 {
   "current": {
-    "logo": "shopify:\/\/shop_images\/Wholesale-NAVY_LOGO-_SOCIAL.jpg",
+    "logo": "shopify:\/\/shop_images\/Wholesale-NAVY_LOGO-_SOCIALcropped.jpg",
     "logo_width": 230,
     "type_header_font": "assistant_n4",
     "heading_scale": 100,
@@ -186,12 +186,6 @@
           "embed_bg_color": "#000000",
           "embed_text_color": "#000000",
           "embed_SPOF_label": ""
-        }
-      },
-      "16216491870256628967": {
-        "type": "shopify:\/\/apps\/bss-labels-badges\/blocks\/bss-pl-config-data\/91bfe765-b604-49a1-805e-3599fa600b24",
-        "disabled": false,
-        "settings": {
         }
       }
     },
