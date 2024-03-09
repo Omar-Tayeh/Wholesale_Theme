@@ -8,13 +8,21 @@
         "sections--16830764876027__544fedbc-0c9a-4280-a983-bafeffeff3a4-announcement-1": {
           "type": "announcement",
           "settings": {
-            "text": "Login\/Register to Buy | Free Delivery UK Mainland",
+            "text": "Login\/Register to Buy",
             "link": "shopify:\/\/pages\/ws-account-create"
+          }
+        },
+        "announcement_3HehbQ": {
+          "type": "announcement",
+          "settings": {
+            "text": "Free Delivery UK Mainland",
+            "link": ""
           }
         }
       },
       "block_order": [
-        "sections--16830764876027__544fedbc-0c9a-4280-a983-bafeffeff3a4-announcement-1"
+        "sections--16830764876027__544fedbc-0c9a-4280-a983-bafeffeff3a4-announcement-1",
+        "announcement_3HehbQ"
       ],
       "settings": {
         "color_scheme": "scheme-ce1fa8a4-8be2-40a6-8679-514d625f868a",
