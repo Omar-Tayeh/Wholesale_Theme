@@ -25,8 +25,8 @@
         "announcement_3HehbQ"
       ],
       "settings": {
-        "color_scheme": "scheme-ce1fa8a4-8be2-40a6-8679-514d625f868a",
-        "show_line_separator": false,
+        "color_scheme": "background-1",
+        "show_line_separator": true,
         "show_social": false,
         "auto_rotate": true,
         "change_slides_speed": 5,
