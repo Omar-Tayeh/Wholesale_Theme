@@ -9,7 +9,7 @@
           "type": "announcement",
           "settings": {
             "text": "Login\/Register to Buy | Free Delivery UK Mainland",
-            "link": ""
+            "link": "shopify:\/\/pages\/ws-account-create"
           }
         }
       },
