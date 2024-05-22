@@ -1,4 +1,28 @@
 <script>
+  function makeRelativeUrlMarketAware(relativeUrl) {
+    let formattedRelativeUrl = relativeUrl;
+  
+    if (relativeUrl.charAt(0) === '/') {
+      // Check if the first character is a "/" if true Remove the first character
+      formattedRelativeUrl = relativeUrl.substring(1);
+    }
+    const shopifyRootRoute = window.Shopify.routes.root;
+  
+    // If a store does not have a shopify routes.root key on their object we 
+    // default to the primary route and console log, as things might not be 
+    //market aware.
+    if (shopifyRootRoute) {
+      // Set the route with the market aware param
+      const marketAwareRoute = `${shopifyRootRoute}${formattedRelativeUrl}`;
+      return marketAwareRoute;
+    } else {
+      // Log that there is no root object, return primary market default
+      console.error(
+        'The shopify root route for the store is undefined or null, check that their theme as not reassign the Shopify.routes object. Using the primary market slug.'
+      );
+      return `/${formattedRelativeUrl}`;
+    }
+  }
   /**
    * Get content by URL and append it to the DOM
    * @param {String} method
@@ -65,7 +89,7 @@
 
       async function doAjax() {
         // await code here
-        await appendContent("GET", "/a/wsg/proxy/ws-account-create", "wsg-account-create");
+        await appendContent("GET", makeRelativeUrlMarketAware('/a/wsg/proxy/ws-account-create'), "wsg-account-create");
         setTexts();
       }
       document.addEventListener("DOMContentLoaded", function () {
@@ -88,7 +112,7 @@
     <script>
       async function doAjax() {
         // await code here
-        await appendContent("GET", "/a/wsg/proxy/ws-account-login", "wsg-login");
+        await appendContent("GET", makeRelativeUrlMarketAware('/a/wsg/proxy/ws-account-login'), "wsg-login");
         setTexts();
 
       }
@@ -135,7 +159,7 @@
       const wsgUrlSearchParams = new URLSearchParams(window.location.search);
       const wsgUrlParams = Object.fromEntries(wsgUrlSearchParams.entries());
       const wsgQs = new URLSearchParams(wsgUrlParams).toString();
-      let wsgReqUrl = '/a/wsg/proxy/ws-quick-order-form';
+      let wsgReqUrl = makeRelativeUrlMarketAware('/a/wsg/proxy/ws-quick-order-form');
       if(wsgQs) wsgReqUrl += '?' + wsgQs;
 
       var wsgCollectionId = wsgUrlParams.id || 0 //current collection id
@@ -181,7 +205,7 @@
       let wsgCartTotalPages = Math.ceil(wsgCart.items.length / wsgCartPaginationLimit);
 
       document.addEventListener('DOMContentLoaded', async function () {
-        await appendContent('GET', `/a/wsg/proxy/cart?pages=${wsgCartTotalPages}&page=${wsgCartPage}`, 'wsg-cart');
+        await appendContent('GET', makeRelativeUrlMarketAware('/a/wsg/proxy/cart?pages=${wsgCartTotalPages}&page=${wsgCartPage}'), 'wsg-cart');
         setTexts();
       }, { once: true })
       function setTexts() {
