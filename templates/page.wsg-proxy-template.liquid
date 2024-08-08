@@ -99,7 +99,7 @@
       function setTexts() {
         document.getElementById('wsg-title').innerHTML = `{{ page.title }}`;
 
-        const wsgDefaultPageContent = 'Wholesale Gorilla uses this page';
+        const wsgDefaultPageContent = 'Wholesale Gorilla';
         if (`{{ page.content }}`.indexOf(wsgDefaultPageContent) === -1) {
           document.getElementById('wsg-account-create-message').innerHTML = `{{ page.content }}`;
         }
@@ -123,7 +123,7 @@
       function setTexts() {
         document.getElementById('wsg-title').innerHTML = `{{ page.title }}`;
 
-        const wsgDefaultPageContent = 'Wholesale Gorilla uses this page';
+        const wsgDefaultPageContent = 'Wholesale Gorilla';
         if (`{{ page.content }}`.indexOf(wsgDefaultPageContent) === -1) {
           document.getElementById('wsg-login-desc').innerHTML = `{{ page.content }}`;
         }
@@ -173,7 +173,7 @@
       function setTexts() {
         document.getElementById('wsg-title').innerHTML = `{{ page.title }}`;
 
-        const wsgDefaultPageContent = 'Wholesale Gorilla uses this page';
+        const wsgDefaultPageContent = 'Wholesale Gorilla';
         if (`{{ page.content }}`.indexOf(wsgDefaultPageContent) === -1) {
           document.getElementById('wsg-quick-order-message').innerHTML = `{{ page.content }}`;
         }
@@ -205,13 +205,13 @@
       let wsgCartTotalPages = Math.ceil(wsgCart.items.length / wsgCartPaginationLimit);
 
       document.addEventListener('DOMContentLoaded', async function () {
-        await appendContent('GET', makeRelativeUrlMarketAware('/a/wsg/proxy/cart?pages=${wsgCartTotalPages}&page=${wsgCartPage}'), 'wsg-cart');
+        await appendContent('GET', makeRelativeUrlMarketAware(`/a/wsg/proxy/cart?pages=${wsgCartTotalPages}&page=${wsgCartPage}`), 'wsg-cart');
         setTexts();
       }, { once: true })
       function setTexts() {
         document.getElementById('wsg-cart-title').innerHTML = `{{ page.title }}`;
 
-        const wsgDefaultPageContent = 'Wholesale Gorilla uses this page';
+        const wsgDefaultPageContent = 'Wholesale Gorilla';
         if (`{{ page.content }}`.indexOf(wsgDefaultPageContent) === -1) {
           document.getElementById('wsg-cart-message').innerHTML = `{{ page.content }}`;
         }
