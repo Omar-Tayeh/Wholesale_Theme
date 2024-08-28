@@ -16,7 +16,7 @@ Do not delete unless Wholesale Gorilla has been uninstalled.
         </label>
         <label
           id="{{ 'customField_' | append: block.settings.text_input | md5}}_label_error"
-          for={{ block.settings.text_input }}
+          for="{{ block.settings.text_input }}"
           class='wsg-hidden-label wsg-label-error'
           data-translation-selector="labelRequired"
         >
@@ -92,7 +92,7 @@ Do not delete unless Wholesale Gorilla has been uninstalled.
             name="terms"
             value=""
             required />
-         	<label id="terms_label" for="terms" class="richtext-label">{{ block.settings.terms }}</label>
+         	<label id="terms_label" for="terms" class="richtext-label" data-translation-selector="termsAndConditions">{{ block.settings.terms }}</label>
         </div>
       </div>
     {% comment %} Marketing field block {% endcomment %}
@@ -118,6 +118,7 @@ Do not delete unless Wholesale Gorilla has been uninstalled.
         <div style="display: flex; align-items: center; flex-direction: column">
         <div class="upload_file_description">{{ block.settings.upload_file_description }}</div>
         <input
+          data-translation-selector="uploadFile"
           id="file-upload-button"
           type='button'
           value="{{ block.settings.text_input }}"
@@ -146,12 +147,12 @@ Do not delete unless Wholesale Gorilla has been uninstalled.
     {% comment %} Company field block {% endcomment %}
     {% when 'company_block' %}
       <div class="grid__item medium-up--one-half" {{ block.shopify_attributes }}>
-        <label id="company_label" for="company">
+        <label id="company_label" for="company" data-translation-selector="companyName">
           {{ block.settings.company }}
         </label>
         <label
           id="company_label_error"
-          for={{ block.settings.company }}
+          for="{{ block.settings.company }}"
           class='wsg-hidden-label wsg-label-error'
           data-translation-selector="labelRequired"
         >
@@ -162,6 +163,7 @@ Do not delete unless Wholesale Gorilla has been uninstalled.
           name="company"
           type="text"
           value=""
+          data-translation-selector="companyName"
           placeholder="{{ block.settings.company }}"
           class="full-width"
           {% if block.settings.isRequired == true %}
@@ -171,7 +173,7 @@ Do not delete unless Wholesale Gorilla has been uninstalled.
     {% comment %} Dropdown block {% endcomment %}
     {% when 'dropdown_block' %}
       <div class="grid__item medium-up--one-half" {{ block.shopify_attributes }}>
-        <label id="dropdown_label" for="dropdown">
+        <label id="dropdown_label" for="dropdown" data-translation-selector="selectOption">
           {{ block.settings.dropdown_label }}
         </label>
         <select name="customField_{{ block.settings.dropdown_label }}" id="dropdown" class="noreplace">
@@ -272,92 +274,89 @@ Do not delete unless Wholesale Gorilla has been uninstalled.
 </style>
 
 <script>
-document.querySelector('#wsg-signup').addEventListener('click', (e) => {
-  if (e.target.closest('#wsg-signup #file-upload-button')) {
-    const file = document.querySelector('#file');
-    file.click();
-  }
-});
-
-document.querySelector('#wsg-signup').addEventListener('change', (e) => {
-  if (e.target.closest('#wsg-signup #file')) {
-    const label = document.getElementById("file_label");
-    const defaultLabelText = (
-      wsgData.translations.language !== 'english'
-      && wsgData.translations.enable
-      && wsgData.translations.languageJson
-    )
-      ? wsgData.translations.languageJson.text.signupLoginReset.fileUploadLabel
-      : 'No file selected';
-
-    const files = e.target.files;
-    let fullLable = '';
-    Array.from(files).forEach(file => { 
-      if (fullLable) {
-        return file && file.name ? fullLable = fullLable + ', ' + file.name : fullLable
-      } else {
-        return file && file.name ? fullLable += file.name : fullLable
-      }
-      
-    });
-
-    label.textContent = fullLable ? fullLable : defaultLabelText;
-  }
-});
-
-var marketingOptIn = document.querySelector('#wsg-signup #marketing_opt_in');
-if (marketingOptIn) {
-document.querySelector('#wsg-signup').addEventListener('input', (e) => {
-  if (marketingOptIn.checked == true) {
-      marketingOptIn.setAttribute('value', true);
-    } else {
-      marketingOptIn.setAttribute('value', '');
-    }
- });
-}
-
-var terms = document.querySelector('#wsg-signup #terms');
-if (terms) {
-  document.querySelector('#wsg-signup').addEventListener('input', (e) => {
-    if (terms.checked == true){
-      terms.setAttribute('value', true);
-    } else {
-      terms.setAttribute('value', '');
+  document.querySelector('#wsg-signup').addEventListener('click', (e) => {
+    if (e.target.closest('#wsg-signup #file-upload-button')) {
+      const file = document.querySelector('#file');
+      file.click();
     }
   });
-}
 
-{% comment %}
+  document.querySelector('#wsg-signup').addEventListener('change', (e) => {
+    if (e.target.closest('#wsg-signup #file')) {
+      const label = document.getElementById("file_label");
+      const defaultLabelText = (
+        wsgData.translations.language !== 'english'
+        && wsgData.translations.enable
+        && wsgData.translations.languageJson
+      )
+        ? wsgData.translations.languageJson.text.signupLoginReset.fileUploadLabel
+        : 'No file selected';
 
-$('#wsg-signup').on("click", "#file-upload-button", function(e){
-  const file = $('#file');
-  file.trigger('click');
-})
-$('#wsg-signup').on("change", "#file", function(e){
-  const label = document.getElementById("file_label");
-  const defaultLabelText = wsgData.translations.language !== 'english'
-    ? wsgData.translations.languageJson.text.signupLoginReset.fileUploadLabel
-    : 'No file selected';
+      const files = e.target.files;
+      let fullLable = '';
+      Array.from(files).forEach(file => { 
+        if (fullLable) {
+          return file && file.name ? fullLable = fullLable + ', ' + file.name : fullLable
+        } else {
+          return file && file.name ? fullLable += file.name : fullLable
+        }
+        
+      });
 
-  const file = e.target.files[0];
-  label.textContent = file && file.name ? file.name : defaultLabelText;
-})
-$('#wsg-signup').on("input", '#marketing_opt_in', function(e){
-  if ($(this).is(':checked')) {
-    $(this).attr('value', true);
-  } else {
-    $(this).attr('value', '');
+      label.textContent = fullLable ? fullLable : defaultLabelText;
+    }
+  });
+
+  var marketingOptIn = document.querySelector('#wsg-signup #marketing_opt_in');
+  if (marketingOptIn) {
+  document.querySelector('#wsg-signup').addEventListener('input', (e) => {
+    if (marketingOptIn.checked == true) {
+        marketingOptIn.setAttribute('value', true);
+      } else {
+        marketingOptIn.setAttribute('value', '');
+      }
+  });
   }
-})
-$('#wsg-signup').on("input", '#terms',function(e){
-  if ($(this).is(':checked')) {
-    $(this).attr('value', true);
-  } else {
-    $(this).attr('value', '');
-  }
-})
 
-{% endcomment %}
+  var terms = document.querySelector('#wsg-signup #terms');
+  if (terms) {
+    document.querySelector('#wsg-signup').addEventListener('input', (e) => {
+      if (terms.checked == true){
+        terms.setAttribute('value', true);
+      } else {
+        terms.setAttribute('value', '');
+      }
+    });
+  }
+
+  // next step, we need to remove data-translation-selector attr if the text of the element is not default
+  const termsAndConditionsElement = document.querySelector('[data-translation-selector="termsAndConditions"]');
+  const uploadFileElement = document.querySelector('[data-translation-selector="uploadFile"]');
+  const companyNameElement = document.querySelector('[data-translation-selector="companyName"]');
+  const selectOptionElement = document.querySelector('[data-translation-selector="selectOption"]');
+
+  if (
+    termsAndConditionsElement &&
+    termsAndConditionsElement.textContent.trim() !== 'I accept the Terms and Conditions for this shop'
+  ) {
+    termsAndConditionsElement.removeAttribute('data-translation-selector');
+  }
+
+  if (uploadFileElement && uploadFileElement.value.trim() !== 'Upload File') {
+    uploadFileElement.removeAttribute('data-translation-selector');
+  }
+
+  if (companyNameElement && companyNameElement.textContent.trim() !== 'Company Name') {
+    const companyNameElements = document.querySelectorAll('[data-translation-selector="companyName"]');
+    companyNameElements.forEach(element => {
+      element.removeAttribute('data-translation-selector');
+    });
+  }
+
+  if (selectOptionElement && selectOptionElement.textContent.trim() !== 'Select an option') {
+    selectOptionElement.removeAttribute('data-translation-selector');
+  }
+
 </script>
 
 {% schema %}
@@ -377,26 +376,7 @@ $('#wsg-signup').on("input", '#terms',function(e){
           "type": "text",
           "id": "text_input",
           "label": "Field Label",
-          "default": {
-            "en": "Custom Wholesale Form Field",
-            "ru": "Пользовательское поле формы оптовой продажи",
-            "es": "Campo de formulario personalizado al por mayor",
-            "pt": "Campo de formulário de atacado personalizado",
-            "no": "Egendefinert engrosskjemafelt",
-            "it": "Campo modulo personalizzato per la vendita all'ingrosso",
-            "hu": "Egyedi nagykereskedelmi űrlapmező",
-            "he": "שדה טופס סיטונאי מותאם אישית",
-            "el": "Πεδίο φόρμας προσαρμοσμένης χονδρικής",
-            "de": "Benutzerdefiniertes Großhandelsformularfeld",
-            "fr": "Champ de formulaire de vente en gros personnalisé",
-            "fi": "Mukautettu tukkumyyntilomakekenttä",
-            "nl": "Aangepast groothandelsformulierveld",
-            "bg": "Персонализирано поле на формуляр за продажба на едро",
-            "da": "Tilpasset engrosformularfelt",
-            "is": "Sérsniðið heildsölueyðublað",
-            "ro": "Câmp personalizat formular de vânzare cu ridicata",
-            "sv": "Anpassat grossistformulärfält"
-          }
+          "default": "Custom Wholesale Form Field"
         },
         {
           "type": "checkbox",
@@ -414,32 +394,13 @@ $('#wsg-signup').on("input", '#terms',function(e){
       "settings": [
         {
           "type": "paragraph",
-          "content": "Add a phone number input to the registration form.  Requires the user to enter a valid phone number into this field."
+          "content": "Add a phone number input to the registration form. Requires the user to enter a valid phone number into this field."
         },
         {
           "type": "text",
           "id": "phone_text_input",
           "label": "Field Label",
-          "default": {
-            "en": "Custom Wholesale Form Field",
-            "ru": "Пользовательское поле формы оптовой продажи",
-            "es": "Campo de formulario personalizado al por mayor",
-            "pt": "Campo de formulário de atacado personalizado",
-            "no": "Egendefinert engrosskjemafelt",
-            "it": "Campo modulo personalizzato per la vendita all'ingrosso",
-            "hu": "Egyedi nagykereskedelmi űrlapmező",
-            "he": "שדה טופס סיטונאי מותאם אישית",
-            "el": "Πεδίο φόρμας προσαρμοσμένης χονδρικής",
-            "de": "Benutzerdefiniertes Großhandelsformularfeld",
-            "fr": "Champ de formulaire de vente en gros personnalisé",
-            "fi": "Mukautettu tukkumyyntilomakekenttä",
-            "nl": "Aangepast groothandelsformulierveld",
-            "bg": "Персонализирано поле на формуляр за продажба на едро",
-            "da": "Tilpasset engrosformularfelt",
-            "is": "Sérsniðið heildsölueyðublað",
-            "ro": "Câmp personalizat formular de vânzare cu ridicata",
-            "sv": "Anpassat grossistformulärfält"
-          }
+          "default": "Custom Wholesale Form Field"
         },
         {
           "type": "checkbox",
@@ -462,51 +423,13 @@ $('#wsg-signup').on("input", '#terms',function(e){
           "type": "text",
           "id": "textarea_label",
           "label": "Field label",
-          "default": {
-            "en": "Custom Wholesale Form Field",
-            "ru": "Пользовательское поле формы оптовой продажи",
-            "es": "Campo de formulario personalizado al por mayor",
-            "pt": "Campo de formulário de atacado personalizado",
-            "no": "Egendefinert engrosskjemafelt",
-            "it": "Campo modulo personalizzato per la vendita all'ingrosso",
-            "hu": "Egyedi nagykereskedelmi űrlapmező",
-            "he": "שדה טופס סיטונאי מותאם אישית",
-            "el": "Πεδίο φόρμας προσαρμοσμένης χονδρικής",
-            "de": "Benutzerdefiniertes Großhandelsformularfeld",
-            "fr": "Champ de formulaire de vente en gros personnalisé",
-            "fi": "Mukautettu tukkumyyntilomakekenttä",
-            "nl": "Aangepast groothandelsformulierveld",
-            "bg": "Персонализирано поле на формуляр за продажба на едро",
-            "da": "Tilpasset engrosformularfelt",
-            "is": "Sérsniðið heildsölueyðublað",
-            "ro": "Câmp personalizat formular de vânzare cu ridicata",
-            "sv": "Anpassat grossistformulärfält"
-          }
+          "default": "Custom Wholesale Form Field"
         },
         {
           "type": "text",
           "id": "textarea_placeholder",
           "label": "Placeholder",
-          "default": {
-            "en": "Custom Wholesale Form Field",
-            "ru": "Пользовательское поле формы оптовой продажи",
-            "es": "Campo de formulario personalizado al por mayor",
-            "pt": "Campo de formulário de atacado personalizado",
-            "no": "Egendefinert engrosskjemafelt",
-            "it": "Campo modulo personalizzato per la vendita all'ingrosso",
-            "hu": "Egyedi nagykereskedelmi űrlapmező",
-            "he": "שדה טופס סיטונאי מותאם אישית",
-            "el": "Πεδίο φόρμας προσαρμοσμένης χονδρικής",
-            "de": "Benutzerdefiniertes Großhandelsformularfeld",
-            "fr": "Champ de formulaire de vente en gros personnalisé",
-            "fi": "Mukautettu tukkumyyntilomakekenttä",
-            "nl": "Aangepast groothandelsformulierveld",
-            "bg": "Персонализирано поле на формуляр за продажба на едро",
-            "da": "Tilpasset engrosformularfelt",
-            "is": "Sérsniðið heildsölueyðublað",
-            "ro": "Câmp personalizat formular de vânzare cu ridicata",
-            "sv": "Anpassat grossistformulärfält"
-          }
+          "default": "Custom Wholesale Form Field"
         },
         {
           "type": "checkbox",
@@ -530,26 +453,7 @@ $('#wsg-signup').on("input", '#terms',function(e){
           "type": "richtext",
           "id": "terms",
           "label": "Terms & Conditions Text",
-          "default": {
-            "en": "<p>I accept the Terms and Conditions for this shop</p>",
-            "ru": "<p>Я принимаю Условия использования этого магазина</p>",
-            "es": "<p>Acepto los Términos y Condiciones de esta tienda</p>",
-            "pt": "<p>Aceito os Termos e Condições desta loja</p>",
-            "no": "<p>Jeg godtar vilkårene og betingelsene for denne butikken</p>",
-            "it": "<p>Accetto i Termini e Condizioni per questo negozio</p>",
-            "hu": "<p>Elfogadom az üzlet Általános Szerződési Feltételeit</p>",
-            "he": "<p>אני מקבל את התנאים וההגבלות של חנות זו</p>",
-            "el": "<p>Αποδέχομαι τους Όρους και Προϋποθέσεις για αυτό το κατάστημα</p>",
-            "de": "<p>Ich akzeptiere die Allgemeinen Geschäftsbedingungen für diesen Shop</p>",
-            "fr": "<p>J'accepte les termes et conditions de cette boutique</p>",
-            "fi": "<p>Hyväksyn tämän kaupan käyttöehdot</p>",
-            "nl": "<p>Ik accepteer de algemene voorwaarden van deze winkel</p>",
-            "bg": "<p>Приемам Общите условия за този магазин</p>",
-            "da": "<p>Jeg accepterer vilkårene og betingelserne for denne butik</p>",
-            "is": "<p>Ég samþykki skilmála og skilyrði fyrir þessa búð</p>",
-            "ro": "<p>Accept Termenii și Condițiile pentru acest magazin</p>",
-            "sv": "<p>Jag accepterar villkoren för denna butik</p>"
-          }
+          "default": "<p>I accept the Terms and Conditions for this shop</p>"
         }
       ]
     },
@@ -566,26 +470,7 @@ $('#wsg-signup').on("input", '#terms',function(e){
           "type": "richtext",
           "id": "marketing_opt_in",
           "label": "Marketing Opt-in text",
-          "default": {
-            "en": "<p>Custom Wholesale Form Field</p>",
-            "ru": "<p>Пользовательское поле формы оптовой продажи</p>",
-            "es": "<p>Campo de formulario personalizado al por mayor</p>",
-            "pt": "<p>Campo de formulário de atacado personalizado</p>",
-            "no": "<p>Egendefinert engrosskjemafelt</p>",
-            "it": "<p>Campo modulo personalizzato per la vendita all'ingrosso</p>",
-            "hu": "<p>Egyedi nagykereskedelmi űrlapmező</p>",
-            "he": "<p>שדה טופס סיטונאי מותאם אישית</p>",
-            "el": "<p>Πεδίο φόρμας προσαρμοσμένης χονδρικής</p>",
-            "de": "<p>Benutzerdefiniertes Großhandelsformularfeld</p>",
-            "fr": "<p>Champ de formulaire de vente en gros personnalisé</p>",
-            "fi": "<p>Mukautettu tukkumyyntilomakekenttä</p>",
-            "nl": "<p>Aangepast groothandelsformulierveld</p>",
-            "bg": "<p>Персонализирано поле на формуляр за продажба на едро</p>",
-            "da": "<p>Tilpasset engrosformularfelt</p>",
-            "is": "<p>Sérsniðið heildsölueyðublað</p>",
-            "ro": "<p>Câmp personalizat formular de vânzare cu ridicata</p>",
-            "sv": "<p>Anpassat grossistformulärfält</p>"
-          }
+          "default": "<p>Custom Wholesale Form Field</p>"
         },
         {
           "type": "checkbox",
@@ -614,26 +499,7 @@ $('#wsg-signup').on("input", '#terms',function(e){
           "type": "text",
           "id": "text_input",
           "label": "Button Label",
-          "default": {
-            "en": "Upload File",
-            "ru": "Загрузить файл",
-            "es": "Subir archivo",
-            "pt": "Subir arquivo",
-            "no": "Last opp fil",
-            "it": "Caricare un file",
-            "hu": "Fájl feltöltés",
-            "he": "העלה קובץ",
-            "el": "Ανέβασμα αρχείου",
-            "de": "Datei hochladen",
-            "fr": "Téléverser un fichier",
-            "fi": "Lataa tiedosto",
-            "nl": "Upload bestand",
-            "bg": "Качи файл",
-            "da": "Upload fil",
-            "is": "Hladdu upp skrá",
-            "ro": "Incarca fisier",
-            "sv": "Ladda upp fil"
-          }
+          "default": "Upload File"
         },
         {
           "type": "color",
@@ -673,26 +539,7 @@ $('#wsg-signup').on("input", '#terms',function(e){
           "type": "text",
           "id": "company",
           "label": "Company Name",
-          "default": {
-            "en": "Company Name",
-            "ru": "Название компании",
-            "es": "nombre de empresa",
-            "pt": "nome da empresa",
-            "no": "selskapsnavn",
-            "it": "Nome della ditta",
-            "hu": "Cégnév",
-            "he": "שם החברה",
-            "el": "Όνομα εταιρείας",
-            "de": "Name der Firma",
-            "fr": "Nom de l'entreprise",
-            "fi": "Yrityksen nimi",
-            "nl": "Bedrijfsnaam",
-            "bg": "Име на фирмата",
-            "da": "firmanavn",
-            "is": "nafn fyrirtækis",
-            "ro": "Numele companiei",
-            "sv": "Företagsnamn"
-          }
+          "default": "Company Name"
         },
         {
           "type": "checkbox",
@@ -716,26 +563,7 @@ $('#wsg-signup').on("input", '#terms',function(e){
           "type": "text",
           "id": "dropdown_label",
           "label": "Select an option",
-          "default": {
-            "en": "Select an option",
-            "ru": "Выберите вариант",
-            "es": "Seleccione una opción",
-            "pt": "Selecione uma opção",
-            "no": "Velg et alternativ",
-            "it": "Seleziona un'opzione",
-            "hu": "Válassz egy lehetőséget",
-            "he": "בחר אפשרות",
-            "el": "Επιλέξτε μια επιλογή",
-            "de": "Wähle eine Option",
-            "fr": "Choisir une option",
-            "fi": "Valitse vaihtoehto",
-            "nl": "Kies een optie",
-            "bg": "Изберете опция",
-            "da": "Vælg en mulighed",
-            "is": "Veldu valkost",
-            "ro": "Selecteaza o optiune",
-            "sv": "Välj ett alternativ"
-          }
+          "default": "Select an option"
         },
         {
           "type": "text",
