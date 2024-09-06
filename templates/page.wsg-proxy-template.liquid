@@ -210,6 +210,7 @@
       }, { once: true })
       function setTexts() {
         document.getElementById('wsg-cart-title').innerHTML = `{{ page.title }}`;
+        document.getElementById('wsg-cart-labe-title').innerHTML = `{{ page.title }}`;
 
         const wsgDefaultPageContent = 'Wholesale Gorilla';
         if (`{{ page.content }}`.indexOf(wsgDefaultPageContent) === -1) {

@@ -322,9 +322,10 @@ Do not delete unless Wholesale Gorilla has been uninstalled.
 
 <script>
   // Updates the login link href to match market domain
-  const wsgSplitUrlPathNames = window.location.pathname.split('/')
-  if(wsgSplitUrlPathNames[1] !== 'pages'){
+  const cleanMarketDomainPath = '{{ routes.root_url | remove: "/" }}'
+
+  if(cleanMarketDomainPath?.length > 0){
       const wsgLoginUrl = document.getElementById('loginLinkA') 
-      wsgLoginUrl.href = '/' + wsgSplitUrlPathNames[1] +  '/pages/ws-account-login'    
+    wsgLoginUrl.href = `/${cleanMarketDomainPath}/pages/ws-account-login`    
   }
 </script>
