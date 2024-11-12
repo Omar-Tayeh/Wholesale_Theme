@@ -36,7 +36,9 @@ Do not delete unless Wholesale Gorilla has been uninstalled.
     {% comment %} Phone number field block {% endcomment %}
     {% when 'phone_block' %}
       <div class="grid__item medium-up--one-half" {{ block.shopify_attributes }}>
-        <label id="{{ 'customField_' | append: block.settings.phone_text_input | md5 }}_label" for="phone">
+        <label id="{{ 'customField_' | append: block.settings.phone_text_input | md5 }}_label"
+        for="phone"
+        data-translation-selector="labelPhone">
           {{ block.settings.phone_text_input }}
         </label>
         <label
@@ -52,6 +54,7 @@ Do not delete unless Wholesale Gorilla has been uninstalled.
           type="text"
           pattern="[0-9\-]*"
           placeholder="{{ block.settings.phone_text_input }}"
+          data-translation-selector="placePhone"
           class="full-width"
           {% if block.settings.isRequired == true %}
             required
@@ -334,6 +337,11 @@ Do not delete unless Wholesale Gorilla has been uninstalled.
   const uploadFileElement = document.querySelector('[data-translation-selector="uploadFile"]');
   const companyNameElement = document.querySelector('[data-translation-selector="companyName"]');
   const selectOptionElement = document.querySelector('[data-translation-selector="selectOption"]');
+  const phoneElement = document.querySelector('[data-translation-selector="labelPhone"]');
+
+  const websiteElement = document.querySelector('[name="customField_Website"]');
+  const taxElement = document.querySelector('[name="customField_Tax ID/ABN/VAT Number"]');
+  const noteElement = document.querySelector('[name="customField_Note"]');
 
   if (
     termsAndConditionsElement &&
@@ -355,6 +363,25 @@ Do not delete unless Wholesale Gorilla has been uninstalled.
 
   if (selectOptionElement && selectOptionElement.textContent.trim() !== 'Select an option') {
     selectOptionElement.removeAttribute('data-translation-selector');
+  }
+
+  if (phoneElement && phoneElement.textContent.trim() !== 'Phone Number') {
+    phoneElement.removeAttribute('data-translation-selector');
+  }
+
+  if (websiteElement) {
+    websiteElement.setAttribute('data-translation-selector', 'placeWebsite');
+    websiteElement.parentElement.children[0].setAttribute('data-translation-selector', 'labelWebsite');
+  }
+
+  if (taxElement) {
+    taxElement.setAttribute('data-translation-selector', 'placeTaxId');
+    taxElement.parentElement.children[0].setAttribute('data-translation-selector', 'labelTaxId');
+  }
+
+  if (noteElement) {
+    noteElement.setAttribute('data-translation-selector', 'placeNotes');
+    noteElement.parentElement.children[0].setAttribute('data-translation-selector', 'labelNotes');
   }
 
 </script>
