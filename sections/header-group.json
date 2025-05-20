@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "name": "t:sections.header.name",
   "type": "header",
@@ -8,8 +17,8 @@
         "sections--16830764876027__544fedbc-0c9a-4280-a983-bafeffeff3a4-announcement-1": {
           "type": "announcement",
           "settings": {
-            "text": "Login\/Register to Buy",
-            "link": "shopify:\/\/pages\/ws-account-create"
+            "text": "Login/Register to Buy",
+            "link": "shopify://pages/ws-account-create"
           }
         },
         "announcement_3HehbQ": {
@@ -43,7 +52,7 @@
         "sticky_header_type": "on-scroll-up",
         "show_line_separator": true,
         "color_scheme": "background-1",
-        "menu_color_scheme": "background-1",
+        "menu_color_scheme": "inverse",
         "enable_country_selector": true,
         "enable_language_selector": true,
         "mobile_logo_position": "center",
