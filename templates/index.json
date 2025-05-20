@@ -31,15 +31,15 @@
         "heading_Jr3h8J": {
           "type": "heading",
           "settings": {
-            "heading": "Register for a Wholesale Account for Access",
-            "heading_size": "h1"
+            "heading": "REGISTER FOR A WHOLESALE ACCOUNT",
+            "heading_size": "h0"
           }
         },
         "text_DDeYa6": {
           "type": "text",
           "settings": {
-            "text": "<p>Submit a Wholesale Account From to start shopping with us.</p>",
-            "text_style": "body"
+            "text": "<p>START SHOPPPING WITH US </p>",
+            "text_style": "subtitle"
           }
         },
         "button_LTUhrK": {
@@ -61,11 +61,11 @@
         "height": "adapt",
         "desktop_image_width": "medium",
         "layout": "image_first",
-        "desktop_content_position": "top",
-        "desktop_content_alignment": "left",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "center",
         "content_layout": "no-overlap",
         "section_color_scheme": "",
-        "color_scheme": "",
+        "color_scheme": "inverse",
         "image_behavior": "none",
         "mobile_content_alignment": "left",
         "padding_top": 36,
@@ -75,7 +75,7 @@
     "image_banner_eDr7h6": {
       "type": "image-banner",
       "settings": {
-        "image": "shopify://shop_images/42_years_of_fashion_version_2_d37878c7-6fde-4e30-8347-5a9b090d4bb2.jpg",
+        "image": "shopify://shop_images/42_years_of_fashion_version_2_c2a17bbb-aa36-49bc-9c35-2a35830986bf.jpg",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
         "desktop_content_position": "middle-center",
@@ -91,7 +91,7 @@
     "image_banner_TmdGTB": {
       "type": "image-banner",
       "settings": {
-        "image": "shopify://shop_images/BANNER_2_edited_6ebae87d-6d19-4419-bf18-992af40afeaa.jpg",
+        "image": "shopify://shop_images/BANNER_2_edited_25194af4-8343-4904-b980-f52d3be3e8da.jpg",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
         "desktop_content_position": "middle-center",
