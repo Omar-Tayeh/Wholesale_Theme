@@ -1,9 +1,18 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "image_banner": {
       "type": "image-banner",
       "settings": {
-        "image": "shopify:\/\/shop_images\/Saloos_SS24_Banner.png",
+        "image": "shopify://shop_images/I80A0739.jpg",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
         "desktop_content_position": "bottom-center",
@@ -29,7 +38,7 @@
         "text_DDeYa6": {
           "type": "text",
           "settings": {
-            "text": "<p>Submit a Wholesale Account From to start shopping with us.<\/p>",
+            "text": "<p>Submit a Wholesale Account From to start shopping with us.</p>",
             "text_style": "body"
           }
         },
@@ -37,7 +46,7 @@
           "type": "button",
           "settings": {
             "button_label": "Register",
-            "button_link": "shopify:\/\/pages\/ws-account-create",
+            "button_link": "shopify://pages/ws-account-create",
             "button_style_secondary": false
           }
         }
@@ -48,7 +57,7 @@
         "button_LTUhrK"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/M24_9179.jpg",
+        "image": "shopify://shop_images/M24_9179.jpg",
         "height": "adapt",
         "desktop_image_width": "medium",
         "layout": "image_first",
@@ -66,7 +75,7 @@
     "image_banner_eDr7h6": {
       "type": "image-banner",
       "settings": {
-        "image": "shopify:\/\/shop_images\/1_1940f465-12d4-4fd0-b030-34ac920bb93a.png",
+        "image": "shopify://shop_images/1_1940f465-12d4-4fd0-b030-34ac920bb93a.png",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
         "desktop_content_position": "middle-center",
@@ -82,7 +91,7 @@
     "image_banner_TmdGTB": {
       "type": "image-banner",
       "settings": {
-        "image": "shopify:\/\/shop_images\/2_19091529-b0bc-470f-a41e-13087a2c2f4f.png",
+        "image": "shopify://shop_images/2_19091529-b0bc-470f-a41e-13087a2c2f4f.png",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
         "desktop_content_position": "middle-center",
@@ -101,19 +110,19 @@
         "image_MNCByY": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/JDPA1280.jpg"
+            "image": "shopify://shop_images/JDPA1280.jpg"
           }
         },
         "image_wR6j8D": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/JDPA1302.jpg"
+            "image": "shopify://shop_images/JDPA1302.jpg"
           }
         },
         "image_4mKJHL": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/JDPA1313.jpg"
+            "image": "shopify://shop_images/JDPA1313.jpg"
           }
         }
       },
