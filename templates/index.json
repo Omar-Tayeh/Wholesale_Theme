@@ -75,7 +75,7 @@
     "image_banner_eDr7h6": {
       "type": "image-banner",
       "settings": {
-        "image": "shopify://shop_images/1_1940f465-12d4-4fd0-b030-34ac920bb93a.png",
+        "image": "shopify://shop_images/42_years_of_fashion_version_2.jpg",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
         "desktop_content_position": "middle-center",
@@ -91,7 +91,7 @@
     "image_banner_TmdGTB": {
       "type": "image-banner",
       "settings": {
-        "image": "shopify://shop_images/2_19091529-b0bc-470f-a41e-13087a2c2f4f.png",
+        "image": "shopify://shop_images/BANNER_2_version_2.png",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
         "desktop_content_position": "middle-center",
