@@ -13,7 +13,6 @@
       "type": "image-banner",
       "settings": {
         "image": "shopify://shop_images/I80A9984.jpg",
-        "image_2": "shopify://shop_images/I80A9885.jpg",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
         "desktop_content_position": "bottom-center",
