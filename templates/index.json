@@ -74,6 +74,7 @@
     },
     "image_banner_eDr7h6": {
       "type": "image-banner",
+      "disabled": true,
       "settings": {
         "image": "shopify://shop_images/BANNER_4_WINTER_be958103-e1e6-41a8-b2e6-9b32b00b302c.jpg",
         "image_overlay_opacity": 0,
