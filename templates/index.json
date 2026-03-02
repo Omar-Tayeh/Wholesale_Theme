@@ -12,7 +12,7 @@
     "image_banner": {
       "type": "image-banner",
       "settings": {
-        "image": "shopify://shop_images/NEW_BANNER_WHOLESALE.jpg",
+        "image": "shopify://shop_images/MAIN_BANNER_SS26.jpg",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
         "desktop_content_position": "bottom-center",
